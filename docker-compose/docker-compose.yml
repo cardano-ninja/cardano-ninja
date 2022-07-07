@@ -7,6 +7,8 @@ services:
             - "80:80"
         networks:
             - ninja
+        env_file:
+            - .env
     data-gatherer:
         image: cardanoninja/cardano-ninja:data-gatherer
         restart: unless-stopped
@@ -14,6 +16,8 @@ services:
             - mongo
         networks:
             - ninja
+        env_file:
+            - .env
     api:
         image: cardanoninja/cardano-ninja:api
         restart: unless-stopped
@@ -21,6 +25,8 @@ services:
             - mongo
         networks:
             - ninja
+        env_file:
+            - .env
     mongo:
         image: mongo
         restart: unless-stopped
