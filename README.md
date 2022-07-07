@@ -14,7 +14,7 @@ https://cardano.ninja
 
 - Download the code.
 - Go to the folder docker-compose.
-- Edit the file .env with the correct blockfrost project api key (register for free in https://blockfrost.io)
+- Edit the file .env with your own blockfrost project api key (get one for free in https://blockfrost.io)
 - Run: docker-compose up
 
 ## How it works
