@@ -1,0 +1,36 @@
+version: "2"
+services:
+    web-app:
+        image: cardanoninja/cardano-ninja:web-app
+        restart: unless-stopped
+        ports:
+            - "80:80"
+        networks:
+            - ninja
+    data-gatherer:
+        image: cardanoninja/cardano-ninja:data-gatherer
+        restart: unless-stopped
+        depends_on:
+            - mongo
+        networks:
+            - ninja
+    api:
+        image: cardanoninja/cardano-ninja:api
+        restart: unless-stopped
+        depends_on:
+            - mongo
+        networks:
+            - ninja
+    mongo:
+        image: mongo
+        restart: unless-stopped
+        volumes:
+            - ./db:/data/db
+            - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+        environment:
+            MONGO_INITDB_DATABASE: admin
+        networks:
+            - ninja
+networks:
+    ninja:
+        driver: bridge
