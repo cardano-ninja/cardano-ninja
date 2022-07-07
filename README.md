@@ -16,6 +16,7 @@ https://cardano.ninja
 - Go to the folder docker-compose.
 - Edit the file .env with your own blockfrost project api key (get one for free in https://blockfrost.io)
 - Run: docker-compose up
+- Cardano ninja will then be available locally: http://localhost
 
 ## How it works
 
